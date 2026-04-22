@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 6</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffe8de;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #ff7043;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #ff7043;
+            box-shadow: 0 0 0 3px rgba(255, 112, 67, 0.2);
+        }
+
+        button {
+            background-color: #ff7043;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f4511e;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            min-height: 28px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Atividade 6 - Verificador de Triângulo</h1>
+        <p>Insira os três lados (A, B, C) para verificar se formam um triângulo:</p>
+
+        <div class="input-group">
+            <label for="ladoA">Lado A:</label>
+            <input type="number" id="ladoA" step="any" required>
+        </div>
+        <div class="input-group">
+            <label for="ladoB">Lado B:</label>
+            <input type="number" id="ladoB" step="any" required>
+        </div>
+        <div class="input-group">
+            <label for="ladoC">Lado C:</label>
+            <input type="number" id="ladoC" step="any" required>
+        </div>
+
+        <button onclick="verificarTriangulo()">Verificar</button>
+
+        <h2 id="resultado"></h2>
+    </div>
+
+    <script>
+        function verificarTriangulo() {
+            // Obter os valores dos inputs
+            const a = parseFloat(document.getElementById('ladoA').value);
+            const b = parseFloat(document.getElementById('ladoB').value);
+            const c = parseFloat(document.getElementById('ladoC').value);
+
+            const resultadoElemento = document.getElementById('resultado');
+
+            // Verificar se os valores são números válidos
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                resultadoElemento.textContent = "Por favor, insira valores válidos para todos os lados.";
+                resultadoElemento.style.color = "red";
+                return;
+            }
+
+            // Regra da desigualdade triangular:
+            // |b - c| < a < b + c
+            // |a - c| < b < a + c
+            // |a - b| < c < a + b
+
+            const condicaoA = Math.abs(b - c) < a && a < (b + c);
+            const condicaoB = Math.abs(a - c) < b && b < (a + c);
+            const condicaoC = Math.abs(a - b) < c && c < (a + b);
+
+            if (condicaoA && condicaoB && condicaoC) {
+                let tipo = "";
+                if (a === b && b === c) {
+                    tipo = "Equilátero";
+                } else if (a === b || a === c || b === c) {
+                    tipo = "Isósceles";
+                } else {
+                    tipo = "Escaleno";
+                }
+                resultadoElemento.textContent = `Os valores formam um triângulo ${tipo}!`;
+                resultadoElemento.style.color = "green";
+            } else {
+                resultadoElemento.textContent = "Os valores NÃO formam um triângulo.";
+                resultadoElemento.style.color = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>
