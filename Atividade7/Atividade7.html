@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 7</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: #ffe8de;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #ff7043;
+            margin-top: 0;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .section h2 {
+            color: #ff7043;
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 30px 0;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff7043;
+            box-shadow: 0 0 0 3px rgba(255, 112, 67, 0.2);
+        }
+
+        button {
+            background-color: #ff7043;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #f4511e;
+        }
+
+        .resultado {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            min-height: 24px;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Funções JS</h1>
+        <p>Preencha os campos para testar.</p>
+
+        <!-- Função 1 -->
+        <div class="section">
+            <h2>1. Maior de Três</h2>
+            <div class="input-group">
+                <div class="row">
+                    <input type="number" id="n1_1" placeholder="Nº 1">
+                    <input type="number" id="n1_2" placeholder="Nº 2">
+                    <input type="number" id="n1_3" placeholder="Nº 3">
+                </div>
+            </div>
+            <button onclick="testarMaior()">Verificar Maior</button>
+            <div class="resultado" id="res1"></div>
+        </div>
+
+        <hr>
+
+        <!-- Função 2 -->
+        <div class="section">
+            <h2>2. Ordem Crescente</h2>
+            <div class="input-group">
+                <div class="row">
+                    <input type="number" id="n2_1" placeholder="Nº 1">
+                    <input type="number" id="n2_2" placeholder="Nº 2">
+                    <input type="number" id="n2_3" placeholder="Nº 3">
+                </div>
+            </div>
+            <button onclick="testarCrescente()">Ordenar</button>
+            <div class="resultado" id="res2"></div>
+        </div>
+
+        <hr>
+
+        <!-- Função 3 -->
+        <div class="section">
+            <h2>3. É Palíndromo?</h2>
+            <div class="input-group">
+                <input type="text" id="str3" placeholder="Digite a palavra...">
+            </div>
+            <button onclick="testarPalindromo()">Verificar</button>
+            <div class="resultado" id="res3"></div>
+        </div>
+
+        <hr>
+
+        <!-- Função 4 -->
+        <div class="section">
+            <h2>4. Subconjunto</h2>
+            <div class="input-group row">
+                <input type="text" id="p4_1" placeholder="Palavra 1">
+                <input type="text" id="p4_2" placeholder="Palavra 2">
+            </div>
+            <button onclick="testarSubconjunto()">Comparar</button>
+            <div class="resultado" id="res4"></div>
+        </div>
+
+        <hr>
+
+        <!-- Função 5 -->
+        <div class="section">
+            <h2>5. Dia da Semana</h2>
+            <div class="input-group">
+                <input type="date" id="data5">
+            </div>
+            <button onclick="testarDiaDaSemana()">Descobrir Dia</button>
+            <div class="resultado" id="res5"></div>
+        </div>
+    </div>
+
+    <!-- Script Externo -->
+    <script src="Atividade7.js"></script>
+</body>
+
+</html>
