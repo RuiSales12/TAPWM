@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 8 - Array</title>
+
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #000;
+
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1FxSKtBE72QF4CMlO6borahcPjtGo86DUYg&s');
+        background-size: cover;        
+        background-position: center;   
+        background-repeat: no-repeat;  
+        background-attachment: fixed;  
+    }
+
+    .container {
+    width: 800px;
+    max-width: 95%;
+    margin: 60px auto;
+    background-color: rgba(255, 255, 255, 0.95); 
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #000;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1976d2;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    .resultado {
+      margin-top: 20px;
+      background-color: #eeeeee;
+      padding: 15px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Atividade 8 - Array</h1>
+
+    <h2>Exercício 1</h2>
+
+    <label>Primeiro número:</label>
+    <input type="number" id="num1">
+
+    <label>Segundo número:</label>
+    <input type="number" id="num2">
+
+    <label>Terceiro número:</label>
+    <input type="number" id="num3">
+
+    <button onclick="calcularNumeros()">Calcular</button>
+
+    <div class="resultado" id="resultado1"></div>
+
+    <hr>
+
+    <h2>Exercício 2</h2>
+
+    <label>Digite 5 letras:</label>
+    <input type="text" id="letras" maxlength="5" placeholder="Ex: ABCDE">
+
+    <button onclick="gerarPalavras()">Gerar palavras</button>
+
+    <div class="resultado" id="resultado2"></div>
+
+  </div>
+
+  <script>
+    function calcularNumeros() {
+      let n1 = Number(document.getElementById("num1").value);
+      let n2 = Number(document.getElementById("num2").value);
+      let n3 = Number(document.getElementById("num3").value);
+
+      let numeros = [n1, n2, n3];
+
+      let soma = numeros[0] + numeros[1] + numeros[2];
+      let quadradoPrimeiro = Math.pow(numeros[0], 2);
+      let quadradoSegundo = Math.pow(numeros[1], 2);
+
+      document.getElementById("resultado1").innerHTML =
+        "A soma dos três números é: " + soma + "<br>" +
+        "O quadrado do primeiro é: " + quadradoPrimeiro + "<br>" +
+        "O quadrado do segundo é: " + quadradoSegundo;
+    }
+
+    function gerarPalavras() {
+      let entrada = document.getElementById("letras").value.toUpperCase();
+
+      if (entrada.length !== 5) {
+        document.getElementById("resultado2").innerHTML =
+          "Digite exatamente 5 letras.";
+        return;
+      }
+
+      let letras = entrada.split("");
+      let palavras = [];
+
+      palavras.push(letras[0] + letras[1] + letras[2] + letras[3] + letras[4]);
+      palavras.push(letras[0] + letras[1] + letras[2] + letras[4] + letras[3]);
+      palavras.push(letras[0] + letras[1] + letras[3] + letras[2] + letras[4]);
+      palavras.push(letras[0] + letras[1] + letras[3] + letras[4] + letras[2]);
+      palavras.push(letras[0] + letras[1] + letras[4] + letras[2] + letras[3]);
+      palavras.push(letras[0] + letras[1] + letras[4] + letras[3] + letras[2]);
+      palavras.push(letras[0] + letras[2] + letras[1] + letras[3] + letras[4]);
+      palavras.push(letras[0] + letras[2] + letras[1] + letras[4] + letras[3]);
+      palavras.push(letras[0] + letras[2] + letras[3] + letras[1] + letras[4]);
+      palavras.push(letras[0] + letras[2] + letras[3] + letras[4] + letras[1]);
+
+      document.getElementById("resultado2").innerHTML =
+        "Palavras geradas:<br>" + palavras.join("<br>");
+    }
+  </script>
+
+</body>
+</html>
