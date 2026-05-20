@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pessoas</title>
+</head>
+<body>
+    <script>
+        const pessoa = {
+            nome: "Rick",
+            idade: 18,
+            hobby: "jogar videogame",
+            apresentar() {
+                return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`;
+            }
+        };
+
+        const pessoa2 = new Object();
+        pessoa2.nome = "João";
+        pessoa2.idade = 16;
+        pessoa2.hobby = "tocar violão";
+        pessoa2.apresentar = function () {
+            return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`;
+        };
+
+        function Pessoa(nome, idade, hobby) {
+            this.nome = nome;
+            this.idade = idade;
+            this.hobby = hobby;
+        }
+        Pessoa.prototype.apresentar = function () {
+            return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`;
+        };
+
+        const pessoa3 = new Pessoa("Arthur M.", 36, "correr");
+
+        class PessoaClasse {
+            constructor(nome, idade, hobby) {
+                this.nome = nome;
+                this.idade = idade;
+                this.hobby = hobby;
+            }
+            apresentar() {
+                return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`;
+            }
+        }
+        const pessoa4 = new PessoaClasse("mãe Juana", 42, "cozinhar");
+
+        const modeloPessoa = {
+            apresentar() {
+                return `Olá, meu nome é ${this.nome}, tenho ${this.idade} anos e meu hobby é ${this.hobby}`;
+            }
+        };
+        const pessoa5 = Object.create(modeloPessoa);
+        pessoa5.nome = "Ana";
+        pessoa5.idade = 19;
+        pessoa5.hobby = "ler livros";
+
+        alert(pessoa.apresentar());
+        alert(pessoa2.apresentar());
+        alert(pessoa3.apresentar());
+        alert(pessoa4.apresentar());
+        alert(pessoa5.apresentar());
+    </script>
+</body>
+</html>
