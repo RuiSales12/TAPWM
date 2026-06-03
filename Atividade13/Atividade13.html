@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 13</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Atividade 13 - Transformação de Texto</h1>
+
+    <label for="texto">Digite o texto:</label>
+    <input type="text" id="texto" placeholder="Digite aqui...">
+
+    <label>
+        <input type="radio" name="transformacao" id="maiusculas" value="maiusculas">
+        Letras maiúsculas
+    </label>
+    <label>
+        <input type="radio" name="transformacao" id="minusculas" value="minusculas">
+        Letras minúsculas
+    </label>
+
+    <script>
+        const inputTexto = document.getElementById("texto");
+        const radioMaiusculas = document.getElementById("maiusculas");
+        const radioMinusculas = document.getElementById("minusculas");
+
+        radioMaiusculas.addEventListener("change", function () {
+            if (this.checked) {
+                inputTexto.value = inputTexto.value.toUpperCase();
+            }
+        });
+
+        radioMinusculas.addEventListener("change", function () {
+            if (this.checked) {
+                inputTexto.value = inputTexto.value.toLowerCase();
+            }
+        });
+    </script>
+</body>
+</html>
